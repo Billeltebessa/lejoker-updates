@@ -16,13 +16,11 @@ https://github.com/Billeltebessa/lejoker-updates/releases/latest/download/update
 - بصمة ملف التثبيت (SHA-256) مسجلة داخل `update.json` ويُتحقق منها بعد التنزيل.
 
 ## نشر إصدار جديد (لصاحب البرنامج)
-1. **Releases ← Draft a new release** — الوسم مثل `v1.1.0`.
-2. ارفع ملف التثبيت `LE-JOKER-POS-Setup-1.1.0.exe`.
-3. وقّع على حاسوبك (حيث المفتاح الخاص):
-   ```
-   node tools\license-admin\cli.js sign-update --file LE-JOKER-POS-Setup-1.1.0.exe --url https://github.com/Billeltebessa/lejoker-updates/releases/download/v1.1.0/LE-JOKER-POS-Setup-1.1.0.exe --notes "الجديد في هذا الإصدار"
-   ```
-4. ارفع `update.json` الناتج إلى نفس الإصدار، ثم **Publish release** (واجعله Latest).
+1. ابنِ المثبّت من مستودع المشروع: **Actions ← build-windows ← Run workflow**، ثم نزّل `LE-JOKER-POS-Setup-X.Y.Z.exe`.
+2. نزّل من هنا المجلد `tools` (الملفان `sign-update.cmd` و `sign-update.js`) وضعهما في مجلد على حاسوبك.
+3. **اسحب ملف التثبيت وأفلته فوق `sign-update.cmd`**، ثم اسحب `private-key.pem` إلى النافذة واضغط Enter، واكتب ملاحظات الإصدار.
+   ← يُنشأ `update.json` بجانب ملف التثبيت (الأداة ترفض أي مفتاح لا يطابق البرنامج).
+4. هنا: **Releases ← Draft a new release** ← الوسم `vX.Y.Z` ← ارفع الملفين (`.exe` و `update.json`) ← **Publish release**.
 
 > ⚠️ لا ترفع أبداً ملف `private-key.pem` ولا سجل التراخيص إلى هذا المستودع.
 
