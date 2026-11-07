@@ -1,0 +1,4 @@
+publish-config.json
+releases/
+private-key.pem
+registry.json
