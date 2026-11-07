@@ -16,6 +16,14 @@ https://github.com/Billeltebessa/lejoker-updates/releases/latest/download/update
 - بصمة ملف التثبيت (SHA-256) مسجلة داخل `update.json` ويُتحقق منها بعد التنزيل.
 
 ## نشر إصدار جديد (لصاحب البرنامج)
+### الطريقة السريعة (ضغطة واحدة) — موصى بها
+1. ضع `tools/publish-update.cmd` و `tools/publish-update.js` داخل مجلد المفاتيح (بجانب `private-key.pem`).
+2. شغّل `publish-update.cmd` بنقرة مزدوجة. في أول مرة يطلب «رمز GitHub» (Fine-grained token) مرة واحدة فقط ويحفظه في `publish-config.json` على حاسوبك.
+3. الأداة تلقائياً: تبني المثبّت من آخر نسخة في `main` (أو تستعمل بناءً جاهزاً)، تنزّله، توقّعه، تنشئ الإصدار، ترفع الملفين، ثم تتحقق من أن الرابط العام يعمل.
+   - `--dry-run` للتجربة دون نشر، و `--notes "..."` لكتابة الملاحظات مباشرة.
+4. إن أعددت «المتابعة» في مدير التراخيص، يُضاف رابطها تلقائياً داخل `update.json` الموقّع.
+
+### الطريقة اليدوية
 1. ابنِ المثبّت من مستودع المشروع: **Actions ← build-windows ← Run workflow**، ثم نزّل `LE-JOKER-POS-Setup-X.Y.Z.exe`.
 2. نزّل من هنا المجلد `tools` (الملفان `sign-update.cmd` و `sign-update.js`) وضعهما في مجلد على حاسوبك.
 3. **اسحب ملف التثبيت وأفلته فوق `sign-update.cmd`**، ثم اسحب `private-key.pem` إلى النافذة واضغط Enter، واكتب ملاحظات الإصدار.
