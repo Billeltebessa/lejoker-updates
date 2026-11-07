@@ -254,5 +254,5 @@ async function uploadAsset(release, name, data, type) {
   }
   if (!good) die('Published, but update.json could not be verified yet. Wait a minute and check the release page.');
   ok(`Customers now get version ${version} (signature and file verified).`);
-  console.log(`\n  DONE. Shops will see the update in Settings -> System -> Updates.\n  ${rel.html_url.replace('/untagged-', '/tag/')}\n`);
+  console.log(`\n  DONE. Shops will see the update in Settings -> System -> Updates.\n  https://github.com/${OWNER}/${DST}/releases/tag/${tag}\n`);
 })().catch((e) => die(e.message));
